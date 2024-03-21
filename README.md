@@ -1,7 +1,7 @@
 ## 社区
 
 Github第三方登录流程
-![img.png](img.png)
+![img.png](https://github.com/wwmmrr/community/edit/master/img.png)
 
 ## 资料
 [Spring 文档](https://spring.io/guides)
