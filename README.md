@@ -1,7 +1,7 @@
 ## 社区
 
 Github第三方登录流程
-![img.png](img.png)
+![img.png](https://github.com/wwmmrr/community/edit/master/img.png)
 
 ## 资料
 [Spring 文档](https://spring.io/guides)
@@ -17,6 +17,7 @@ Github第三方登录流程
 
 ## 工具
 https://git-scm.com/download
+<<<<<<< HEAD
 
 ## 脚本
 
@@ -31,3 +32,5 @@ CREATE TABLE `table_user`  (
   PRIMARY KEY (`id`) USING BTREE
 )
 ```
+=======
+>>>>>>> 716453369913e5c8e185a6420fd3254ce5c038c3
