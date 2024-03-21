@@ -1,11 +1,18 @@
 ## 社区
 
+Github第三方登录流程
+![img.png](img.png)
+
 ## 资料
-https://spring.io/guides
+[Spring 文档](https://spring.io/guides)
 
-https://spring.io/guides/gs/serving-web-content
+[Spring Web 文档](https://spring.io/guides/gs/serving-web-content)
 
-[创建deploy-keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
+[Bootstrap3 文档](https://v3.bootcss.com/getting-started/)
+
+[Gitee OAuth文档](https://gitee.com/api/v5/oauth_doc#/)
+
+[Gitee API文档,获取授权用户的信息](https://gitee.com/api/v5/swagger#/getV5User)
 
 
 ## 工具
