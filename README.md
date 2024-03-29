@@ -17,7 +17,6 @@ Github第三方登录流程
 
 ## 工具
 https://git-scm.com/download
-<<<<<<< HEAD
 
 ## 脚本
 
@@ -32,5 +31,3 @@ CREATE TABLE `table_user`  (
   PRIMARY KEY (`id`) USING BTREE
 )
 ```
-=======
->>>>>>> 716453369913e5c8e185a6420fd3254ce5c038c3

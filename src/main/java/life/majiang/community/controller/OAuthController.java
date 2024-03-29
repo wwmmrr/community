@@ -1,6 +1,8 @@
 package life.majiang.community.controller;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import life.majiang.community.dto.AccessTokenDTO;
 import life.majiang.community.dto.GiteeUser;
 import life.majiang.community.mapper.UserMapper;
@@ -30,13 +32,13 @@ public class OAuthController {
 
 
     @GetMapping("/callback")
-    public String callback(@RequestParam(name = "code") String code, HttpServletRequest request) {
+    public String callback(@RequestParam(name = "code") String code,
+                           HttpServletRequest request, HttpServletResponse response) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setRedirect_uri(redirect_uri);
         accessTokenDTO.setClient_id(client_id);
         accessTokenDTO.setClient_secret(client_secret);
         accessTokenDTO.setCode(code);
-//        accessTokenDTO.setState(state);
         System.out.println(accessTokenDTO.toString());
         String accessToken = giteeProvider.getAccessToken(accessTokenDTO);
         System.out.println("accessToken=" + accessToken);
@@ -45,15 +47,21 @@ public class OAuthController {
             //登录失败,重新登录
             return "redirect:/";
         }
+
         User user = new User();
-        user.setToken(UUID.randomUUID().toString());
+        String token = UUID.randomUUID().toString();
+        user.setToken(token);
         user.setName(giteeUser.getName());
         user.setAccountId(String.valueOf(giteeUser.getId()));
         user.setGmtCreate(System.currentTimeMillis());
         user.setGmtModified(user.getGmtCreate());
 
         userMapper.insert(user);
-        request.getSession().setAttribute("user", user);
+
+        Cookie cookie = new Cookie("token", token);
+        cookie.setMaxAge(60*60*24);
+        cookie.setPath("/");
+        response.addCookie(cookie);
 
         return "redirect:/";
     }
